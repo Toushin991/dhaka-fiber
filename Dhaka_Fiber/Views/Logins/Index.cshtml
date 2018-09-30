@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+    if(Session["UserId"] == null)
+    {
+        Response.Redirect("~/Logins/Login");
+    }
+}
+<h2>Index</h2>
+<div>@Html.ActionLink("Logout", "Logout","Logins")</div>

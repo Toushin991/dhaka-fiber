@@ -1,0 +1,98 @@
+﻿@model Dhaka_Fiber.Models.Plan
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Plan</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Plan_Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Plan_Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Plan_Price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Plan_Price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Plan_Validity)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Plan_Validity)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Plan_Validity_d_m)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Plan_Validity_d_m)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Connection_Type)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Connection_Type)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Shared_Users)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Shared_Users)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Bandwidth_Plans.Bandwidth_Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Bandwidth_Plans.Bandwidth_Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IP_Pools1.Pool_Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IP_Pools1.Pool_Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Router1.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Router1.Name)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

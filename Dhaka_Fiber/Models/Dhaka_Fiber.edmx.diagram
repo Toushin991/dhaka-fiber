@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b435492df4e34fa2b5c794d0bacab72c" Name="Diagram1">
+        <EntityTypeShape EntityType="Dhaka_FiberModel.Bandwidth_Plans" Width="1.5" PointX="0.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dhaka_FiberModel.IP_Pools" Width="1.5" PointX="5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dhaka_FiberModel.Plan" Width="1.5" PointX="2.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dhaka_FiberModel.Router" Width="1.5" PointX="7.375" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Dhaka_FiberModel.FK_Plans_Bandwidth_Plans" ManuallyRouted="false" />
+        <AssociationConnector Association="Dhaka_FiberModel.FK_Plans_IP_Pools" ManuallyRouted="false" />
+        <AssociationConnector Association="Dhaka_FiberModel.FK_Plans_Router" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Dhaka_FiberModel.User" Width="1.5" PointX="5.125" PointY="7.75" />
+        <AssociationConnector Association="Dhaka_FiberModel.FK_User_Plans" />
+        <EntityTypeShape EntityType="Dhaka_FiberModel.Technician" Width="1.5" PointX="9.625" PointY="5" />
+        <EntityTypeShape EntityType="Dhaka_FiberModel.Technician_Experties" Width="1.5" PointX="7.375" PointY="5.875" />
+        <EntityTypeShape EntityType="Dhaka_FiberModel.User_Role" Width="1.5" PointX="7.375" PointY="8.875" />
+        <AssociationConnector Association="Dhaka_FiberModel.FK_Technician_Technician_Experties" />
+        <AssociationConnector Association="Dhaka_FiberModel.FK_Technician_User_Role" />
+        <EntityTypeShape EntityType="Dhaka_FiberModel.Login" Width="1.5" PointX="9.625" PointY="9.75" />
+        <AssociationConnector Association="Dhaka_FiberModel.FK_Login_User_Role" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,58 @@
+﻿@model Dhaka_Fiber.Models.IP_Pools
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>IP_Pools</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Pool_Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pool_Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IP_Range)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IP_Range)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Router)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Router)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Reamaks)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Reamaks)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

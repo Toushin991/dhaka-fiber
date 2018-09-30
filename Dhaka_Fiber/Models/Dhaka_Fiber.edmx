@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Dhaka_FiberModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bandwidth_Plans">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bandwidth_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rate_Download" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rate_Upload" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IP_Pools">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pool_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IP_Range" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Router" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Reamaks" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="Role" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Plans">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Plan_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bandwidth_Name" Type="int" Nullable="false" />
+          <Property Name="Plan_Price" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plan_Validity" Type="int" Nullable="false" />
+          <Property Name="Plan_Validity_d/m" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Connection_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Shared_Users" Type="int" Nullable="false" />
+          <Property Name="Router" Type="int" Nullable="false" />
+          <Property Name="IP_Pools" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Router">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Port" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remarks" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Technician">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="int" Nullable="false" />
+          <Property Name="Login_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Full_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NID" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Experties" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Technician_Experties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Tech_exp" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="House#" Type="int" />
+          <Property Name="Road#" Type="int" />
+          <Property Name="Apt#" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone(1)" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone(2)" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell(1)" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell(2)" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="National_ID#" Type="int" Nullable="false" />
+          <Property Name="Type_of_user" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Packages" Type="int" Nullable="false" />
+          <Property Name="IP_Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAC_Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activation_Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Login_User_Role">
+          <End Role="User_Role" Type="Self.User_Role" Multiplicity="1" />
+          <End Role="Login" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Login">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plans_Bandwidth_Plans">
+          <End Role="Bandwidth_Plans" Type="Self.Bandwidth_Plans" Multiplicity="1" />
+          <End Role="Plans" Type="Self.Plans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bandwidth_Plans">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Plans">
+              <PropertyRef Name="Bandwidth_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plans_IP_Pools">
+          <End Role="IP_Pools" Type="Self.IP_Pools" Multiplicity="1" />
+          <End Role="Plans" Type="Self.Plans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IP_Pools">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Plans">
+              <PropertyRef Name="IP_Pools" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plans_Router">
+          <End Role="Router" Type="Self.Router" Multiplicity="1" />
+          <End Role="Plans" Type="Self.Plans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Router">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Plans">
+              <PropertyRef Name="Router" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Technician_Technician_Experties">
+          <End Role="Technician_Experties" Type="Self.Technician_Experties" Multiplicity="1" />
+          <End Role="Technician" Type="Self.Technician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Technician_Experties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Technician">
+              <PropertyRef Name="Experties" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Technician_User_Role">
+          <End Role="User_Role" Type="Self.User_Role" Multiplicity="1" />
+          <End Role="Technician" Type="Self.Technician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Technician">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Plans">
+          <End Role="Plans" Type="Self.Plans" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plans">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Packages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Dhaka_FiberModelStoreContainer">
+          <EntitySet Name="Bandwidth_Plans" EntityType="Self.Bandwidth_Plans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IP_Pools" EntityType="Self.IP_Pools" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plans" EntityType="Self.Plans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Router" EntityType="Self.Router" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Technician" EntityType="Self.Technician" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Technician_Experties" EntityType="Self.Technician_Experties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Login_User_Role" Association="Self.FK_Login_User_Role">
+            <End Role="User_Role" EntitySet="User_Role" />
+            <End Role="Login" EntitySet="Login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plans_Bandwidth_Plans" Association="Self.FK_Plans_Bandwidth_Plans">
+            <End Role="Bandwidth_Plans" EntitySet="Bandwidth_Plans" />
+            <End Role="Plans" EntitySet="Plans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plans_IP_Pools" Association="Self.FK_Plans_IP_Pools">
+            <End Role="IP_Pools" EntitySet="IP_Pools" />
+            <End Role="Plans" EntitySet="Plans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plans_Router" Association="Self.FK_Plans_Router">
+            <End Role="Router" EntitySet="Router" />
+            <End Role="Plans" EntitySet="Plans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Technician_Technician_Experties" Association="Self.FK_Technician_Technician_Experties">
+            <End Role="Technician_Experties" EntitySet="Technician_Experties" />
+            <End Role="Technician" EntitySet="Technician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Technician_User_Role" Association="Self.FK_Technician_User_Role">
+            <End Role="User_Role" EntitySet="User_Role" />
+            <End Role="Technician" EntitySet="Technician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Plans" Association="Self.FK_User_Plans">
+            <End Role="Plans" EntitySet="Plans" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Dhaka_FiberModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bandwidth_Plans">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bandwidth_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rate_Download" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rate_Upload" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Plans" Relationship="Self.FK_Plans_Bandwidth_Plans" FromRole="Bandwidth_Plans" ToRole="Plans" />
+        </EntityType>
+        <EntityType Name="IP_Pools">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pool_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IP_Range" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Router" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Reamaks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Plans" Relationship="Self.FK_Plans_IP_Pools" FromRole="IP_Pools" ToRole="Plans" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Plan_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bandwidth_Name" Type="Int32" Nullable="false" />
+          <Property Name="Plan_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plan_Validity" Type="Int32" Nullable="false" />
+          <Property Name="Plan_Validity_d_m" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Connection_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Shared_Users" Type="Int32" Nullable="false" />
+          <Property Name="Router" Type="Int32" Nullable="false" />
+          <Property Name="IP_Pools" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bandwidth_Plans" Relationship="Self.FK_Plans_Bandwidth_Plans" FromRole="Plans" ToRole="Bandwidth_Plans" />
+          <NavigationProperty Name="IP_Pools1" Relationship="Self.FK_Plans_IP_Pools" FromRole="Plans" ToRole="IP_Pools" />
+          <NavigationProperty Name="Router1" Relationship="Self.FK_Plans_Router" FromRole="Plans" ToRole="Router" />
+          <NavigationProperty Name="Users" Relationship="Dhaka_FiberModel.FK_User_Plans" FromRole="Plan" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Router">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Port" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Plans" Relationship="Self.FK_Plans_Router" FromRole="Router" ToRole="Plans" />
+        </EntityType>
+        <Association Name="FK_Plans_Bandwidth_Plans">
+          <End Role="Bandwidth_Plans" Type="Self.Bandwidth_Plans" Multiplicity="1" />
+          <End Role="Plans" Type="Self.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bandwidth_Plans">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Plans">
+              <PropertyRef Name="Bandwidth_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plans_IP_Pools">
+          <End Role="IP_Pools" Type="Self.IP_Pools" Multiplicity="1" />
+          <End Role="Plans" Type="Self.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IP_Pools">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Plans">
+              <PropertyRef Name="IP_Pools" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plans_Router">
+          <End Role="Router" Type="Self.Router" Multiplicity="1" />
+          <End Role="Plans" Type="Self.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Router">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Plans">
+              <PropertyRef Name="Router" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Dhaka_FiberDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bandwidth_Plans" EntityType="Self.Bandwidth_Plans" />
+          <EntitySet Name="IP_Pools" EntityType="Self.IP_Pools" />
+          <EntitySet Name="Plans" EntityType="Self.Plan" />
+          <EntitySet Name="Routers" EntityType="Self.Router" />
+          <AssociationSet Name="FK_Plans_Bandwidth_Plans" Association="Self.FK_Plans_Bandwidth_Plans">
+            <End Role="Bandwidth_Plans" EntitySet="Bandwidth_Plans" />
+            <End Role="Plans" EntitySet="Plans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plans_IP_Pools" Association="Self.FK_Plans_IP_Pools">
+            <End Role="IP_Pools" EntitySet="IP_Pools" />
+            <End Role="Plans" EntitySet="Plans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plans_Router" Association="Self.FK_Plans_Router">
+            <End Role="Router" EntitySet="Routers" />
+            <End Role="Plans" EntitySet="Plans" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="Dhaka_FiberModel.User" />
+          <AssociationSet Name="FK_User_Plans" Association="Dhaka_FiberModel.FK_User_Plans">
+            <End Role="Plan" EntitySet="Plans" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Technicians" EntityType="Dhaka_FiberModel.Technician" />
+          <EntitySet Name="Technician_Experties" EntityType="Dhaka_FiberModel.Technician_Experties" />
+          <EntitySet Name="User_Role" EntityType="Dhaka_FiberModel.User_Role" />
+          <AssociationSet Name="FK_Technician_Technician_Experties" Association="Dhaka_FiberModel.FK_Technician_Technician_Experties">
+            <End Role="Technician_Experties" EntitySet="Technician_Experties" />
+            <End Role="Technician" EntitySet="Technicians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Technician_User_Role" Association="Dhaka_FiberModel.FK_Technician_User_Role">
+            <End Role="User_Role" EntitySet="User_Role" />
+            <End Role="Technician" EntitySet="Technicians" />
+          </AssociationSet>
+          <EntitySet Name="Logins" EntityType="Dhaka_FiberModel.Login" />
+          <AssociationSet Name="FK_Login_User_Role" Association="Dhaka_FiberModel.FK_Login_User_Role">
+            <End Role="User_Role" EntitySet="User_Role" />
+            <End Role="Login" EntitySet="Logins" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="House_" Type="Int32" />
+          <Property Name="Road_" Type="Int32" />
+          <Property Name="Apt_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone_1_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone_2_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_1_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell_2_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="National_ID_" Type="Int32" Nullable="false" />
+          <Property Name="Type_of_user" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Packages" Type="Int32" Nullable="false" />
+          <Property Name="IP_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAC_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Activation_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Plan" Relationship="Dhaka_FiberModel.FK_User_Plans" FromRole="User" ToRole="Plan" />
+        </EntityType>
+        <Association Name="FK_User_Plans">
+          <End Type="Dhaka_FiberModel.Plan" Role="Plan" Multiplicity="1" />
+          <End Type="Dhaka_FiberModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Packages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Technician">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="Int32" Nullable="false" />
+          <Property Name="Login_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Full_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NID" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Experties" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Technician_Experties" Relationship="Dhaka_FiberModel.FK_Technician_Technician_Experties" FromRole="Technician" ToRole="Technician_Experties" />
+          <NavigationProperty Name="User_Role" Relationship="Dhaka_FiberModel.FK_Technician_User_Role" FromRole="Technician" ToRole="User_Role" />
+        </EntityType>
+        <EntityType Name="Technician_Experties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Tech_exp" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Technicians" Relationship="Dhaka_FiberModel.FK_Technician_Technician_Experties" FromRole="Technician_Experties" ToRole="Technician" />
+        </EntityType>
+        <EntityType Name="User_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Technicians" Relationship="Dhaka_FiberModel.FK_Technician_User_Role" FromRole="User_Role" ToRole="Technician" />
+          <NavigationProperty Name="Logins" Relationship="Dhaka_FiberModel.FK_Login_User_Role" FromRole="User_Role" ToRole="Login" />
+        </EntityType>
+        <Association Name="FK_Technician_Technician_Experties">
+          <End Type="Dhaka_FiberModel.Technician_Experties" Role="Technician_Experties" Multiplicity="1" />
+          <End Type="Dhaka_FiberModel.Technician" Role="Technician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Technician_Experties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Technician">
+              <PropertyRef Name="Experties" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Technician_User_Role">
+          <End Type="Dhaka_FiberModel.User_Role" Role="User_Role" Multiplicity="1" />
+          <End Type="Dhaka_FiberModel.Technician" Role="Technician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Technician">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="Role" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User_Role" Relationship="Dhaka_FiberModel.FK_Login_User_Role" FromRole="Login" ToRole="User_Role" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_Login_User_Role">
+          <End Type="Dhaka_FiberModel.User_Role" Role="User_Role" Multiplicity="1" />
+          <End Type="Dhaka_FiberModel.Login" Role="Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Login">
+              <PropertyRef Name="Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Dhaka_FiberModelStoreContainer" CdmEntityContainer="Dhaka_FiberDbContext">
+          <EntitySetMapping Name="Bandwidth_Plans">
+            <EntityTypeMapping TypeName="Dhaka_FiberModel.Bandwidth_Plans">
+              <MappingFragment StoreEntitySet="Bandwidth_Plans">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Bandwidth_Name" ColumnName="Bandwidth_Name" />
+                <ScalarProperty Name="Rate_Download" ColumnName="Rate_Download" />
+                <ScalarProperty Name="Rate_Upload" ColumnName="Rate_Upload" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IP_Pools">
+            <EntityTypeMapping TypeName="Dhaka_FiberModel.IP_Pools">
+              <MappingFragment StoreEntitySet="IP_Pools">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Pool_Name" ColumnName="Pool_Name" />
+                <ScalarProperty Name="IP_Range" ColumnName="IP_Range" />
+                <ScalarProperty Name="Router" ColumnName="Router" />
+                <ScalarProperty Name="Reamaks" ColumnName="Reamaks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plans">
+            <EntityTypeMapping TypeName="Dhaka_FiberModel.Plan">
+              <MappingFragment StoreEntitySet="Plans">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Plan_Name" ColumnName="Plan_Name" />
+                <ScalarProperty Name="Bandwidth_Name" ColumnName="Bandwidth_Name" />
+                <ScalarProperty Name="Plan_Price" ColumnName="Plan_Price" />
+                <ScalarProperty Name="Plan_Validity" ColumnName="Plan_Validity" />
+                <ScalarProperty Name="Plan_Validity_d_m" ColumnName="Plan_Validity_d/m" />
+                <ScalarProperty Name="Connection_Type" ColumnName="Connection_Type" />
+                <ScalarProperty Name="Shared_Users" ColumnName="Shared_Users" />
+                <ScalarProperty Name="Router" ColumnName="Router" />
+                <ScalarProperty Name="IP_Pools" ColumnName="IP_Pools" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routers">
+            <EntityTypeMapping TypeName="Dhaka_FiberModel.Router">
+              <MappingFragment StoreEntitySet="Router">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Dhaka_FiberModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Activation_Date" ColumnName="Activation_Date" />
+                <ScalarProperty Name="MAC_Address" ColumnName="MAC_Address" />
+                <ScalarProperty Name="IP_Address" ColumnName="IP_Address" />
+                <ScalarProperty Name="Packages" ColumnName="Packages" />
+                <ScalarProperty Name="Type_of_user" ColumnName="Type_of_user" />
+                <ScalarProperty Name="National_ID_" ColumnName="National_ID#" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Cell_2_" ColumnName="Cell(2)" />
+                <ScalarProperty Name="Cell_1_" ColumnName="Cell(1)" />
+                <ScalarProperty Name="Phone_2_" ColumnName="Phone(2)" />
+                <ScalarProperty Name="Phone_1_" ColumnName="Phone(1)" />
+                <ScalarProperty Name="Apt_" ColumnName="Apt#" />
+                <ScalarProperty Name="Road_" ColumnName="Road#" />
+                <ScalarProperty Name="House_" ColumnName="House#" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Technicians">
+            <EntityTypeMapping TypeName="Dhaka_FiberModel.Technician">
+              <MappingFragment StoreEntitySet="Technician">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Experties" ColumnName="Experties" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login_Name" ColumnName="Login_Name" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Technician_Experties">
+            <EntityTypeMapping TypeName="Dhaka_FiberModel.Technician_Experties">
+              <MappingFragment StoreEntitySet="Technician_Experties">
+                <ScalarProperty Name="Tech_exp" ColumnName="Tech_exp" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Role">
+            <EntityTypeMapping TypeName="Dhaka_FiberModel.User_Role">
+              <MappingFragment StoreEntitySet="User_Role">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="Dhaka_FiberModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
